@@ -7,14 +7,15 @@ import { AdSenseBanner } from '@/components/AdSenseBanner';
 import { StructuredData } from '@/components/StructuredData';
 
 interface PageProps {
-  params: { pref: string };
+  params: Promise<{ pref: string }>;
 }
 
 export async function generateStaticParams(): Promise<{ pref: string }[]> {
   return getAllPrefectures().map(p => ({ pref: p.nameEn }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params: paramsPromise }: PageProps): Promise<Metadata> {
+  const params = await paramsPromise;
   const pref = getAllPrefectures().find(p => p.nameEn === params.pref);
   if (!pref) return { title: 'ページが見つかりません' };
 
@@ -37,7 +38,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function PrefTopPage({ params }: PageProps) {
+export default async function PrefTopPage({ params: paramsPromise }: PageProps) {
+  const params = await paramsPromise;
   const pref = getAllPrefectures().find(p => p.nameEn === params.pref);
   if (!pref) notFound();
 

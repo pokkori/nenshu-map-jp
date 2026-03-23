@@ -16,7 +16,7 @@ import { ShareButtons } from '@/components/ShareButtons';
 import { StructuredData } from '@/components/StructuredData';
 
 interface PageProps {
-  params: { pref: string; occupation: string };
+  params: Promise<{ pref: string; occupation: string }>;
 }
 
 export async function generateStaticParams(): Promise<{ pref: string; occupation: string }[]> {
@@ -31,7 +31,8 @@ export async function generateStaticParams(): Promise<{ pref: string; occupation
   return params;
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params: paramsPromise }: PageProps): Promise<Metadata> {
+  const params = await paramsPromise;
   const prefs = getAllPrefectures();
   const jobs = getAllJobs();
   const pref = prefs.find(p => p.nameEn === params.pref);
@@ -72,7 +73,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function IncomeDetailPage({ params }: PageProps) {
+export default async function IncomeDetailPage({ params: paramsPromise }: PageProps) {
+  const params = await paramsPromise;
   const prefs = getAllPrefectures();
   const jobs = getAllJobs();
   const pref = prefs.find(p => p.nameEn === params.pref);

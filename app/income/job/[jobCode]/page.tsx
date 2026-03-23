@@ -7,14 +7,15 @@ import { AdSenseBanner } from '@/components/AdSenseBanner';
 import { StructuredData } from '@/components/StructuredData';
 
 interface PageProps {
-  params: { jobCode: string };
+  params: Promise<{ jobCode: string }>;
 }
 
 export async function generateStaticParams(): Promise<{ jobCode: string }[]> {
   return getAllJobs().map(j => ({ jobCode: j.code }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params: paramsPromise }: PageProps): Promise<Metadata> {
+  const params = await paramsPromise;
   const job = getAllJobs().find(j => j.code === params.jobCode);
   if (!job) return { title: 'ページが見つかりません' };
 
@@ -37,7 +38,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function JobRankingPage({ params }: PageProps) {
+export default async function JobRankingPage({ params: paramsPromise }: PageProps) {
+  const params = await paramsPromise;
   const job = getAllJobs().find(j => j.code === params.jobCode);
   if (!job) notFound();
 
