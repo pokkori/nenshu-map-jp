@@ -4,6 +4,7 @@ import { getAllPrefectures, getAllJobs } from '@/lib/income-data';
 import { SearchBox } from '@/components/SearchBox';
 import { PrefectureGrid } from '@/components/PrefectureGrid';
 import { AdSenseBanner } from '@/components/AdSenseBanner';
+import { StreakBadge } from '@/components/StreakBadge';
 
 export const metadata: Metadata = {
   title: '年収マップJP | 都道府県×職種別 平均年収データベース',
@@ -41,6 +42,7 @@ export default function HomePage() {
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
           年収マップJP
         </h1>
+        <StreakBadge eventKey="nenshu_map" />
         <p className="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
           政府統計から47都道府県×職種の平均年収を検索
         </p>
