@@ -15,11 +15,20 @@ export function StreakBadge({ eventKey }: { eventKey: string }) {
   if (!streak || streak.count <= 1) return null;
 
   return (
-    <div className="inline-flex flex-col items-center gap-1">
+    <div
+      className="inline-flex flex-col items-center gap-1"
+      role="status"
+      aria-label={`${streak.count}日連続訪問中のストリークバッジ`}
+      aria-live="polite"
+    >
       <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-3 py-1 text-sm text-blue-200">
         <span>{streak.count}日連続訪問中</span>
       </div>
-      {msg && <div className="text-orange-400 text-xs font-bold">{msg}</div>}
+      {msg && (
+        <div className="text-orange-400 text-xs font-bold" aria-label={`ストリーク達成メッセージ: ${msg}`}>
+          {msg}
+        </div>
+      )}
     </div>
   );
 }

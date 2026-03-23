@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {/* ナビゲーション */}
-        <header role="banner" className="glass-card mx-4 mt-4 px-6 py-3 sticky top-4 z-50">
+        <header role="banner" className="glass-card backdrop-blur-sm mx-4 mt-4 px-6 py-3 sticky top-4 z-50">
           <nav aria-label="メインナビゲーション" className="flex items-center justify-between">
             <Link
               href="/"

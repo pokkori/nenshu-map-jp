@@ -70,17 +70,17 @@ export default async function PrefTopPage({ params: paramsPromise }: PageProps) 
               { label: pref.name, href: `/income/${pref.nameEn}/` },
             ]}
           />
-          <h1 className="text-3xl font-bold text-white mt-6 mb-2">
+          <h1 className="text-3xl font-bold text-white mt-6 mb-2" aria-label={`${pref.name}の職種別平均年収ランキング一覧`}>
             {pref.name}の平均年収ランキング
           </h1>
-          <p className="text-blue-200 mb-6">
+          <p className="text-blue-200 mb-6" aria-label="データ出典：政府統計（賃金構造基本統計調査）">
             政府統計（賃金構造基本統計調査）をもとにした職種別年収データ
           </p>
           <AdSenseBanner slot="4567890123" format="horizontal" className="mb-8" />
           {topJobs.length > 0 ? (
             <JobRankingTable jobs={topJobs} prefNameEn={pref.nameEn} />
           ) : (
-            <div className="glass-card p-8 text-center">
+            <div className="glass-card p-8 text-center" role="status" aria-label={`${pref.name}の年収データ取得中`}>
               <p className="text-blue-200">現在、{pref.name}の年収データを取得中です。</p>
             </div>
           )}

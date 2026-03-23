@@ -38,8 +38,8 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900">
       {/* ヒーローセクション */}
-      <section className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+      <section className="container mx-auto px-4 py-16 text-center" aria-label="サイトトップ：年収検索">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4" aria-label="年収マップJP – 都道府県×職種別平均年収データベース">
           年収マップJP
         </h1>
         <StreakBadge eventKey="nenshu_map" />

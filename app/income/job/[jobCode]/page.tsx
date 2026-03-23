@@ -70,11 +70,11 @@ export default async function JobRankingPage({ params: paramsPromise }: PageProp
               { label: `${job.name}年収ランキング`, href: `/income/job/${params.jobCode}/` },
             ]}
           />
-          <h1 className="text-3xl font-bold text-white mt-6 mb-2">
+          <h1 className="text-3xl font-bold text-white mt-6 mb-2" aria-label={`${job.name}の都道府県別平均年収ランキング（全47都道府県比較）`}>
             {job.name}の都道府県別年収ランキング
           </h1>
           {topPref && (
-            <p className="text-blue-200 mb-6">
+            <p className="text-blue-200 mb-6" aria-label={`年収1位: ${topPref.prefName}、平均${topPref.avgAnnualIncome.toFixed(0)}万円`}>
               1位: {topPref.prefName}（平均{topPref.avgAnnualIncome.toFixed(0)}万円）
             </p>
           )}
@@ -82,7 +82,7 @@ export default async function JobRankingPage({ params: paramsPromise }: PageProp
           {ranking.length > 0 ? (
             <ComparisonChart data={ranking} highlightCode="" />
           ) : (
-            <div className="glass-card p-8 text-center">
+            <div className="glass-card p-8 text-center" role="status" aria-label={`${job.name}の都道府県別データ取得中`}>
               <p className="text-blue-200">現在、{job.name}の都道府県別データを取得中です。</p>
             </div>
           )}

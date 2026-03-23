@@ -14,7 +14,7 @@ export function IncomeCard({ income, rank, totalPrefs }: IncomeCardProps) {
     'rank-badge rank-badge-other';
 
   return (
-    <div className="glass-card p-8" aria-label={`${income.prefName}の${income.jobName}年収データ`}>
+    <div className="glass-card backdrop-blur-sm p-8" aria-label={`${income.prefName}の${income.jobName}年収データ`}>
       <div className="flex items-center gap-4 mb-6">
         <span className={rankBadgeClass} aria-label={`全国${rank}位`}>
           {rank}

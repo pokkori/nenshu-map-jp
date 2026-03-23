@@ -22,7 +22,7 @@ export function RelatedLinks({
       <h2 className="text-xl font-bold text-white mb-4">関連ページ</h2>
       <div className="grid md:grid-cols-2 gap-6">
         {/* 同じ都道府県の他職種 */}
-        <div className="glass-card p-4">
+        <div className="glass-card backdrop-blur-sm p-4">
           <h3 className="text-blue-200 font-semibold mb-3">{prefName}の他の職種</h3>
           <ul className="space-y-2 list-none" role="list">
             {topJobs.filter(j => j.jobCode !== jobCode).slice(0, 6).map(j => (
@@ -47,7 +47,7 @@ export function RelatedLinks({
         </div>
 
         {/* CTAカード */}
-        <div className="glass-card p-4 flex flex-col justify-between">
+        <div className="glass-card backdrop-blur-sm p-4 flex flex-col justify-between">
           <div>
             <h3 className="text-blue-200 font-semibold mb-3">他の地域の{jobName}</h3>
             <p className="text-blue-300 text-sm">

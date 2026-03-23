@@ -12,7 +12,7 @@ export function ComparisonChart({ data, highlightCode }: ComparisonChartProps) {
   const maxIncome = Math.max(...data.map(d => d.avgAnnualIncome), 1);
 
   return (
-    <div className="glass-card p-6" aria-label="都道府県別年収ランキングチャート">
+    <div className="glass-card backdrop-blur-sm p-6" aria-label="都道府県別年収ランキングチャート">
       <ol className="space-y-2" role="list" aria-label="年収ランキング">
         {data.map((d, i) => {
           const pref = prefs.find(p => p.code === d.prefCode);

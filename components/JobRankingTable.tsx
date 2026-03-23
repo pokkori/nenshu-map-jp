@@ -8,7 +8,7 @@ interface JobRankingTableProps {
 
 export function JobRankingTable({ jobs, prefNameEn }: JobRankingTableProps) {
   return (
-    <div className="glass-card overflow-hidden" aria-label="職種別年収ランキングテーブル">
+    <div className="glass-card backdrop-blur-sm overflow-hidden" aria-label="職種別年収ランキングテーブル">
       <table className="w-full" role="table" aria-label="職種別平均年収一覧">
         <thead>
           <tr className="border-b border-white/10">
