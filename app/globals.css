@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-accent: #06b6d4;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-glass-bg: rgba(255, 255, 255, 0.08);
+  --color-glass-border: rgba(255, 255, 255, 0.15);
+  --color-glass-shadow: rgba(0, 0, 0, 0.3);
+}
+
+@layer components {
+  /* グラスモーフィズムカード */
+  .glass-card {
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--color-glass-border);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px var(--color-glass-shadow);
+  }
+
+  /* 年収バー（ランキング表示用） */
+  .income-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #06b6d4, #3b82f6);
+    transition: width 0.6s ease-out;
+  }
+
+  /* ランキングバッジ */
+  .rank-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+
+  .rank-badge-1 { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #1f2937; }
+  .rank-badge-2 { background: linear-gradient(135deg, #d1d5db, #9ca3af); color: #1f2937; }
+  .rank-badge-3 { background: linear-gradient(135deg, #d97706, #b45309); color: #fff; }
+  .rank-badge-other { background: rgba(255,255,255,0.1); color: #e5e7eb; }
+
+  /* ボタン（最小タッチターゲット44px保証） */
+  .btn-primary {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.15s, opacity 0.15s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-primary:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 2px;
+  }
+
+  /* シェアボタン */
+  .btn-share {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.15s, opacity 0.15s;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: none;
+  }
+
+  .btn-share:hover { opacity: 0.85; transform: translateY(-1px); }
+  .btn-share:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 2px;
+  }
+}
+
+/* フォント最適化 */
+body {
+  font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #f1f5f9;
+}
+
+/* テキスト最小サイズ保証（14px以上） */
+small, .text-xs { font-size: 0.875rem; } /* 14px */
+
+/* アクセシビリティ: フォーカスリング */
+*:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+/* スクロールバーカスタマイズ */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
