@@ -3,7 +3,7 @@ import Link from 'next/link';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nenshu-map.jp'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://nenshu-map-jp.vercel.app'),
   title: {
     default: '年収マップJP | 都道府県×職種別 平均年収データベース',
     template: '%s | 年収マップJP',
