@@ -16,10 +16,53 @@ export const metadata: Metadata = {
   },
 };
 
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "年収マップJPのデータはどこから取得していますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "政府の統計データベース「e-Stat（政府統計の総合窓口）」から取得した47都道府県×職種別の平均年収データを使用しています。信頼性の高い公式統計データをもとに作成しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "無料で利用できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい、完全無料・登録不要でご利用いただけます。全機能を無償で提供しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "どの都道府県・職種のデータが調べられますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "北海道から沖縄まで全47都道府県のデータに対応しています。職種はIT・医療・教育・建設・製造・サービス業など主要職種を網羅しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "データの更新頻度はどのくらいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "政府統計（e-Stat）の更新タイミングに合わせて年次更新しています。最新の統計年度のデータを掲載しています。"
+      }
+    },
+  ]
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
         {/* Google AdSense（本番ID取得後にdata-ad-client値を差し替え） */}
         <script
           async
